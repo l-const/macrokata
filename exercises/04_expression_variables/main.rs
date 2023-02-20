@@ -5,6 +5,14 @@ fn print_result(num: i32) {
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
 // TODO: create `math!()` macro.
+macro_rules! math {
+    ($e:expr, plus, $id:ident) => {
+        $e + $id
+    };
+    (square $id:ident) => {
+        $id * $id
+    };
+}
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 

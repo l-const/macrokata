@@ -15,7 +15,17 @@ impl Coordinate {
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
 // TODO: Create `for_2d!` macro here.
-
+macro_rules! for_2d {
+    ($row:ident <$type_row:ty> in $iter1:expr, $col:ident <$type_col:ty> in $iter2:expr, $blk:block) => {
+        for $row in $iter1 {
+            let $row: $type_row = $row;
+            for $col in $iter2 {
+                let $col: $type_col = $col;
+                $blk
+            }
+        }
+    }
+}
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {

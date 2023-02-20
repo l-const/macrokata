@@ -5,6 +5,15 @@ fn print_result(num: i32) {
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
 // TODO: create `math!()` macro.
+#[macro_export]
+macro_rules! math {
+    ($left_literal_operand:literal plus $right_literal_operand:literal) => {
+        $left_literal_operand + $right_literal_operand
+    };
+    (square $num:expr) => {
+        $num * $num
+    }
+}
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 
