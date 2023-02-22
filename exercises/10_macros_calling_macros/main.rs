@@ -35,6 +35,22 @@ macro_rules! digit {
 
 // TODO: create `number!()` macro.
 
+macro_rules! number {
+
+    ($(t:literal )*) => (
+        stringify!($($t,)*) 
+    );
+
+    ($($t:ident )*) => (
+        $(number!($t) )*
+    );
+   
+    ($t:literal) => (
+        digit!($t)
+    );
+
+}
+
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {

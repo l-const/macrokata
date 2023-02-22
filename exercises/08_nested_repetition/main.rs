@@ -6,6 +6,23 @@ fn print_vec<V: std::fmt::Debug>(vec: &Vec<V>) {
 
 // TODO: create `graph!()` macro.
 
+macro_rules! graph {
+    ($($f:literal -> ($($lit:literal),*);)*) => {
+        {
+            let mut vec = Vec::new();
+            $(
+                
+                $(
+                    
+                    vec.push(($f, $lit));
+                )*
+            
+            )*
+            vec
+        }
+    };
+}
+
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 #[allow(clippy::vec_init_then_push)]
