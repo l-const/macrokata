@@ -1,5 +1,15 @@
 // TODO: Create the `curry!()` macro.
 
+macro_rules! curry {
+    (_, $blk:block) => {$blk};
+    (($id:ident: $t:ty) => $(($ids:ident: $ts:ty) =>)* _, $blk:block) => {
+        move |$id: $t| {
+            print_curried_argument($id);
+            curry!($(($ids: $ts) =>)* _, $blk)
+        }
+    };
+}
+
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn print_numbers(nums: &Vec<i32>) {
